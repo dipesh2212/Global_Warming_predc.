@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+<head>
+    
+<meta charset="UTF-8">
+ 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+<link rel="stylesheet" href= "{{ url_for('static',filename='styles.css') }}">
+
+<link rel="stylesheet" href= "{{ url_for('static',filename='UserManual.css') }}">
+    
+
+<title>Linear Regression</title>
+
+</head>
+
+
+
+<body >
+    <!-- Create the top bar -->
+    
+<nav class="navbar navbar-default">
+
+
+        
+<div class="container-fluid">
+    
+  <!-- Brand and toggle get grouped for better mobile display -->
+            
+<div class="navbar-header">
+                
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+
+                
+<span class="sr-only">Toggle navigation</span>
+       
+
+         <span class="icon-bar"></span>
+        
+
+        <span class="icon-bar"></span>
+         
+
+       <span class="icon-bar"></span>
+             
+   </button>
+         
+
+       <a class="navbar-brand" href="/Home">Home  <i class="fa fa-home"></i></a>
+       
+
+     </div>
+
+
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+      
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+   
+             <ul class="nav navbar-nav navbar-right">
+             
+<li class="dropdown">
+
+  <button class="dropbtn">Prediction  <i class="fa fa-thermometer"></i></button>
+
+  <div class="dropdown-content">
+
+    <a href="/Prediction_Form">Countrywise Weather Prediction</a>
+
+    <a href="/Global_Prediction">Global Weather Prediction</a>
+
+  </div>
+</li>
+
+<li class="dropdown">
+
+  <button class="dropbtn">Gases Prediction <i class="fa fa-soundcloud"></i></button>
+
+  <div class="dropdown-content">
+
+     <a href="/Carbon_Prediction">Carbon Prediction</a>
+
+    <a href="/OzonePrediction">Ozone Prediction</a>
+
+    <a href="/SO2_Prediction">SO2 Prediction</a>
+
+    <a href="/NO2_Prediction">NO2 Prediction</a>
+
+    <a href="/CO_Prediction">CO Prediction</a>
+  </div>
+</li>
+
+
+
+<li class="dropdown">
+
+  <button class="dropbtn" >Graphs<i class="fa fa-cube"></i></button>
+
+  <div class="dropdown-content">
+
+    <a href="/co2no2dynamicgraph">Graph 1</a>
+
+    <a href="/ch4dynamicgraph">Graph 2</a>
+
+  </div>
+</li>
+             
+       <li class="dropdown">
+
+  <button class="dropbtn" >Plots<i class="fa fa-globe"></i></button>
+
+  <div class="dropdown-content">
+
+    <a href="/Global_yearly_average_tempreature">Global yearly average tempreature</a>
+
+    <a href="/Measurement">Measurement </a>
+
+    <a href="/Per_month">Per Month</a>
+
+    <a href="/Solar">Solar</a>
+
+  </div>
+</li>
+ 
+
+
+
+<li class="dropdown">
+
+  <button class="dropbtn" >Analysis<i class="fa fa-globe"></i></button>
+
+  <div class="dropdown-content">
+
+    <a href="/CO_Analysis">CO Analysis</a>
+
+    <a href="/CO2_Analysis">CO2 Analysis</a>
+
+    <a href="/NO2_Analysis">NO2 Analysis </a>
+
+    <a href="/O3_Analysis">O3 Analysis</a>
+
+    <a href="/SO2_Analysis">SO2 Analysis</a>
+
+  </div>
+</li>
+
+
+
+                
+
+<li class="dropdown">
+
+  <button class="dropbtn">Documentation <i class="fa fa-fw fa-book"></i></button>
+
+  <div class="dropdown-content">
+
+     <a target="_blank" href="/UserManual">User Manual</a>
+
+    <a target="_blank" href="/InputSources">Input Sources</a>
+
+  </div>
+</li>
+
+
+
+
+
+
+        
+<li>
+                
+    <button class="dropbtn" onclick="document.location='/Feedback'">Feedback<i class="fa fa-fw fa-envelope"></i> </button>
+</li> 
+
+
+                
+    <!-- Insert Github Link Below -->
+<li>
+                
+    <button class="dropbtn"  target="_blank" onclick="document.location='https://github.com/thechillyweather'">Github <i class="fa fa-github"></i></button>
+</li>
+
+
+
+                    
+         
+ </ul>
+
+
+    
+        </div>
+  
+      </div>
+    
+</nav>
+
+
+
+
+
+                                  <div class = 'container'>
+
+                <div class = 'row'>
+         
+                     <div class = 'col-md-12'><br>
+
+
+
+
+
+
+
+                <h3> <b> We have used Linear Model for Future Predictions </b> </h3>
+				<h2> <b> Linear Regression </b> </h2> 
+					Linear regression is a basic and commonly used type of predictive analysis.  The overall idea of regression is to examine two things: <br/>
+						<b>(1) does a set of predictor variables do a good job in predicting an outcome (dependent) variable? </b><br/>
+
+						<b>(2) Which variables in particular are significant predictors of the outcome variable, and in what way do they indicated by the magnitude and sign of the beta estimates impact 
+						the outcome variable? </b><br/>
+
+						These regression estimates are used to explain the relationship between one dependent variable and one or more independent variables.  
+						The simplest form of the regression equation with one dependent and one independent variable is defined by the formula 
+						<b> y = c + b*x, </b><br/>
+						where y = estimated dependent variable score,<br/>
+							  c = constant, <br/>
+                                                          b = regression coefficient,<br/>
+							  and x = score on the independent variable.<br/>
+							Naming the Variables.  There are many names for a regression&rsquo;s dependent variable.  
+							It may be called an outcome variable, criterion variable, endogenous variable, or regressand. 
+							The independent variables can be called exogenous variables, predictor variables, or regressors.<br/>
+							<img src = "{{ url_for('static',filename='LinearRegression.jpg') }}" >
+
+
+
+<p></p>
+
+
+<button class="btn" onclick="document.location='https://en.wikipedia.org/wiki/Linear_regression#:~:text=In%20statistics%2C%20linear%20regression%20is,as%20dependent%20and%20independent%20variables).'"><i class="fa fa-download"></i> Wikipedia </button>
+            
+
+
+
+
+
+
+
+
+                             </div>
+  
+                        </div>
+
+
+
+
+
+
+
+
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</html>

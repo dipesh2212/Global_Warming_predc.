@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href= "{{ url_for('static',filename='plot.css') }}">
+    <link rel="stylesheet" href= "{{ url_for('static',filename='UserManual.css') }}">
+    <link rel="stylesheet" href= "{{ url_for('static',filename='clous.css') }}">
+    <link rel="stylesheet" href= "{{ url_for('static',filename='tables.css') }}">
+  
+     
+    <title>SO2 Detail Analysis</title>
+</head>
+
+<body >
+    <!-- Create the top bar -->
+    
+<nav class="navbar navbar-default">
+
+
+        
+<div class="container-fluid">
+    
+  <!-- Brand and toggle get grouped for better mobile display -->
+            
+<div class="navbar-header">
+                
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+
+                
+<span class="sr-only">Toggle navigation</span>
+       
+
+         <span class="icon-bar"></span>
+        
+
+        <span class="icon-bar"></span>
+         
+
+       <span class="icon-bar"></span>
+             
+   </button>
+         
+
+       <a class="navbar-brand" href="/Home">Home  <i class="fa fa-home"></i></a>
+       
+
+     </div>
+
+
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+      
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+   
+             <ul class="nav navbar-nav navbar-right">
+             
+<li class="dropdown">
+
+  <button class="dropbtn">Prediction  <i class="fa fa-thermometer"></i></button>
+
+  <div class="dropdown-content">
+
+    <a href="/Prediction_Form">Countrywise Weather Prediction</a>
+
+    <a href="/Global_Prediction">Global Weather Prediction</a>
+
+  </div>
+</li>
+
+<li class="dropdown">
+
+  <button class="dropbtn">Gases Prediction <i class="fa fa-soundcloud"></i></button>
+
+  <div class="dropdown-content">
+
+     <a href="/Carbon_Prediction">Carbon Prediction</a>
+
+    <a href="/OzonePrediction">Ozone Prediction</a>
+
+    <a href="/SO2_Prediction">SO2 Prediction</a>
+
+    <a href="/NO2_Prediction">NO2 Prediction</a>
+
+    <a href="/CO_Prediction">CO Prediction</a>
+  </div>
+</li>
+
+
+
+<li class="dropdown">
+
+  <button class="dropbtn" >Graphs<i class="fa fa-cube"></i></button>
+
+  <div class="dropdown-content">
+
+    <a href="/co2no2dynamicgraph">Graph 1</a>
+
+    <a href="/ch4dynamicgraph">Graph 2</a>
+
+  </div>
+</li>
+             
+       <li class="dropdown">
+
+  <button class="dropbtn" >Plots<i class="fa fa-globe"></i></button>
+
+  <div class="dropdown-content">
+
+    <a href="/Global_yearly_average_tempreature">Global yearly average tempreature</a>
+
+    <a href="/Measurement">Measurement </a>
+
+    <a href="/Per_month">Per Month</a>
+
+    <a href="/Solar">Solar</a>
+
+  </div>
+</li>
+ 
+
+
+
+<li class="dropdown">
+
+  <button class="dropbtn" >Analysis<i class="fa fa-globe"></i></button>
+
+  <div class="dropdown-content">
+
+    <a href="/CO_Analysis">CO Analysis</a>
+
+    <a href="/CO2_Analysis">CO2 Analysis</a>
+
+    <a href="/NO2_Analysis">NO2 Analysis </a>
+
+    <a href="/O3_Analysis">O3 Analysis</a>
+
+    <a href="/SO2_Analysis">SO2 Analysis</a>
+
+  </div>
+</li>
+
+
+
+                
+
+<li class="dropdown">
+
+  <button class="dropbtn">Documentation <i class="fa fa-fw fa-book"></i></button>
+
+  <div class="dropdown-content">
+
+     <a target="_blank" href="/UserManual">User Manual</a>
+
+    <a target="_blank" href="/InputSources">Input Sources</a>
+
+  </div>
+</li>
+
+
+
+
+
+
+        
+<li>
+                
+    <button class="dropbtn" onclick="document.location='/Feedback'">Feedback<i class="fa fa-fw fa-envelope"></i> </button>
+</li> 
+
+
+                
+    <!-- Insert Github Link Below -->
+<li>
+                
+    <button class="dropbtn"  target="_blank" onclick="document.location='https://github.com/thechillyweather'">Github <i class="fa fa-github"></i></button>
+</li>
+
+
+
+                    
+         
+ </ul>
+
+
+    
+        </div>
+  
+      </div>
+    
+</nav>
+
+
+
+
+
+<div id="background-wrap">
+		<div class="x1">
+			<div class="cloud"></div>
+		</div>
+
+		<div class="x2">
+			<div class="cloud"></div>
+		</div>
+
+		<div class="x3">
+			<div class="cloud"></div>
+		</div>
+
+		<div class="x4">
+			<div class="cloud"></div>
+		</div>
+
+		<div class="x5">
+			<div class="cloud"></div>
+		</div>
+
+</div>
+
+
+
+    <div class = "container">
+        <div class = "row">
+            <div class="col-md-12"> <br>
+                <h1>Sulphur Dioxide Analysis</h1>
+
+                    
+<center><button class="btn" onclick="document.location='https://drive.google.com/file/d/13veX5HLBTtzOBuF9i6-hG8pP816gKHnR/view?usp=sharing'"><i class="fa fa-cloud-download"></i> Input Sources </button></center>
+            
+
+
+
+				<h1>Sulphur Dioxide</h1>
+<ul>
+<li>Sulphur dioxide is the chemical compound with the formula SO2. It is a toxic gas responsible for the smell of burnt matches.</li><br/> 
+<li>It is released naturally by volcanic activity and is produced as a by-product of copper extraction and the burning of fossil fuels contaminated with sulfur compounds. </li><br/> 
+<li>Sulfur dioxide has a pungent smell like nitric acid.</li><br/> 
+<li>Sulfur dioxide is found on Earth and exists in very small concentrations and in the atmosphere at about 1 ppm.</li><br/> 
+<li>On other planets, sulfur dioxide can be found in various concentrations, the most significant being the atmosphere of Venus, where it is the third-most significant atmospheric gas at 150 ppm.</li><br/>  
+<li>There, it condenses to form clouds, and is a key component of chemical reactions in the planet's atmosphere and contributes to global warming. </li><br/> 
+<li>It has been implicated as a key agent in the warming of early Mars, with estimates of concentrations in the lower atmosphere as high as 100 ppm, though it only exists in trace amounts. </li><br/> 
+<li>On both Venus and Mars, as on Earth, its primary source is thought to be volcanic. The atmosphere of Io, a natural satellite of Jupiter, 
+    is 90% sulfur dioxide and trace amounts are thought to also exist in the atmosphere of Jupiter.</li><br/> 
+<li>As an ice, it is thought to exist in abundance on the Galilean moons - as subliming ice or frost on the trailing hemisphere of Io, 
+    and in the crust and mantle of Europa, Ganymede, and Callisto, possibly also in liquid form and readily reacting with water.</li><br/> 
+</ul>
+				
+
+				<h2>Properties of SO<sub>2</sub></h2>
+
+<table>
+  <tr>
+    <th>Chemical Formula</th>
+    <th>SO<sub>2</sub></th>
+  </tr>
+
+  <tr>
+    <td>Molar Mass</td>
+    <td>64.066 g &#x2219;mol-1</td>
+  </tr>
+
+  <tr>
+    <td>Appearance</td>
+    <td>Colorless gas</td>
+  </tr>
+
+
+  <tr>
+    <td>Density</td>
+    <td>2.6288 kg m-3</td>
+  </tr>
+
+  <tr>
+    <td>Melting Point</td>
+    <td>-72  &deg;C; -98  &deg;F; 201 K</td>
+  </tr>
+
+  <tr>
+    <td>Boiling Point</td>
+    <td>-10  &deg;C (14  &deg;F; 263 K)</td>
+  </tr>
+
+  <tr>
+    <td>Solubility in water</td>
+    <td>94 g/Lforms sulfurous acid</td>
+  </tr>
+
+  <tr>
+    <td>Vapor pressure</td>
+    <td>237.2 kPa</td>
+  </tr>
+ 
+  <tr>
+    <td>Magnetic susceptibility</td>
+    <td>-18.2 &#x2219;10-6 cm<sup>3</sup>/mol</td>
+  </tr>
+
+  <tr>
+    <td>Viscosity</td>
+    <td>12.82 &mu; Pa &#x2219;s</td>
+  </tr>
+
+</table>
+
+
+
+                    <center><img src="{{ url_for('static',filename='so2_graph.svg') }}" alt="so2_graph"> </center>
+
+
+
+				<h3> The above Graph Determines,</h3>
+			
+			<ul>
+			<li>x-axis shows Yers from 1850 to 2010</li><br/>
+
+			<li>y-axis shows Sulphur Dioxide(SO<sub>2</sub>) values in million tonnes</li><br/>
+
+			<li>Differene colors shows the increased values of SO<sub>2</sub> according to Continents </li><br/>
+				
+			</ul>
+
+
+
+
+
+				<h1>Sulphur Dioxide and Global Warming</h1>
+<ul>
+<li>Global climate change, prior to the 20th century, appears to have been initiated primarily by major changes in volcanic activity. </li><br/> 
+<li>Sulfur dioxide (SO2) is the most voluminous chemically active gas emitted by volcanoes and is readily oxidized to sulfuric acid normally within weeks.</li><br/>  
+<li>But trace amounts of SO2 exert significant influence on climate. All major historic volcanic eruptions have formed sulfuric acid aerosols in the lower stratosphere
+    that cooled the earth's surface ~ 0.5 &deg;C for typically three years. </li><br/> 
+<li>While such events are currently happening once every 80 years, there are times in geologic history when they occurred every few to a dozen years. </li><br/> 
+<li>These were times when the earth was cooled incrementally into major ice ages. </li><br/> 
+<li>There have also been two dozen times during the past 46,000 years when major volcanic eruptions occurred every year or two or even several times per year for decades.</li><br/>  
+<li>Each of these times was contemporaneous with very rapid global warming. </li><br/> 
+<li>Large volumes of SO2 erupted frequently appear to overdrive the oxidizing capacity of the atmosphere resulting in very rapid warming. </li><br/> 
+<li>Such warming and associated acid rain becomes extreme when millions of cubic kilometers of basalt are erupted in much less than one million years. </li><br/> 
+<li>These are the times of the greatest mass extinctions. When major volcanic eruptions do not occur for decades to hundreds of years, the atmosphere can oxidize all pollutants, 
+    leading to a very thin atmosphere, global cooling and decadal drought. </li><br/> 
+<li>Prior to the 20th century, increases in atmospheric carbon dioxide (CO2) followed increases in temperature initiated by changes in SO2.</li><br/> 
+<li>By 1962, man burning fossil fuels was adding SO2 to the atmosphere at a rate equivalent to one &ldquo;large&rdquo; volcanic eruption each 1.7 years.</li><br/>  
+<li>Global temperatures increased slowly from 1890 to 1950 as anthropogenic sulfur increased slowly. </li><br/> 
+<li>Global temperatures increased more rapidly after 1950 as the rate of anthropogenic sulfur emissions increased. </li><br/> 
+<li>By 1980 anthropogenic sulfur emissions peaked and began to decrease because of major efforts especially in Japan, Europe, and the United States to reduce acid rain. </li><br/> 
+<li>Atmospheric concentrations of methane began decreasing in 1990 and have remained nearly constant since 2000, demonstrating an increase in oxidizing capacity. </li><br/> 
+<li>Global temperatures became roughly constant around 2000 and even decreased beginning in late 2007. </li><br/> 
+<li>Meanwhile atmospheric concentrations of carbon dioxide have continued to increase at the same rate that they have increased since 1970. </li><br/> 
+<li>Thus SO2 is playing a far more active role in initiating and controlling global warming than recognized by the Intergovernmental Panel on Climate Change. </li><br/> 
+<li>Massive reduction of SO2 should be a top priority in order to reduce both global warming and acid rain. </li><br/> 
+<li>But man is also adding two to three orders of magnitude more CO2 per year to the climate than one &ldquo;large&rdquo; volcanic eruption added in the past. 
+<li>Thus CO2, a greenhouse gas, is contributing to global warming and should be reduced. We have already significantly reduced SO2 emissions in order to reduce acid rain. </li><br/> 
+<li>We know how to do it both technically and politically.</li><br/> 
+<li>In the past, sudden climate change was typically triggered by sudden increases in volcanic activity. </li><br/> 
+<li>Slow increases in greenhouse gases, therefore, do not appear as likely as currently thought to trigger tipping points where the climate suddenly changes. </li><br/> 
+<li>However we do need to start planning an appropriate human response to future major increases in volcanic activity.</li><br/> 
+</ul>
+
+
+<p></p>
+
+
+<center><button class="btn" onclick="document.location='https://en.wikipedia.org/wiki/Sulfur_dioxide'"><i class="fa fa-wikipedia-w"></i> Wikipedia</button></center>
+
+
+
+</div>
+
+             </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</html>

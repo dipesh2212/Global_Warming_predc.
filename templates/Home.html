@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+
+
+
+<head>
+
+    
+<meta charset="UTF-8">
+ 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href= "{{ url_for('static',filename='styles.css') }}">
+
+<link rel="stylesheet" href= "{{ url_for('static',filename='clous.css') }}">
+
+    
+
+<title>Home</title>
+
+</head>
+
+
+
+
+<body >
+    <!-- Create the top bar -->
+
+    
+    
+<nav class="navbar navbar-default">
+
+
+        
+<div class="container-fluid">
+    
+  <!-- Brand and toggle get grouped for better mobile display -->
+            
+<div class="navbar-header">
+                
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+
+                
+<span class="sr-only">Toggle navigation</span>
+       
+
+         <span class="icon-bar"></span>
+        
+
+        <span class="icon-bar"></span>
+         
+
+       <span class="icon-bar"></span>
+             
+   </button>
+         
+
+       <a class="navbar-brand" href="/Home">Home  <i class="fa fa-home"></i></a>
+       
+
+     </div>
+
+
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+      
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+   
+             <ul class="nav navbar-nav navbar-right">
+             
+<li class="dropdown">
+
+  <button class="dropbtn">Prediction 	<i class="fa fa-thermometer"></i></button>
+
+  <div class="dropdown-content">
+
+    <a href="/Prediction_Form">Countrywise Weather Prediction</a>
+
+    <a href="/Global_Prediction">Global Weather Prediction</a>
+
+  </div>
+</li>
+
+<li class="dropdown">
+
+  <button class="dropbtn">Gases Prediction <i class="fa fa-soundcloud"></i></button>
+
+  <div class="dropdown-content">
+
+     <a href="/Carbon_Prediction">Carbon Prediction</a>
+
+    <a href="/OzonePrediction">Ozone Prediction</a>
+
+    <a href="/SO2_Prediction">SO2 Prediction</a>
+
+    <a href="/NO2_Prediction">NO2 Prediction</a>
+
+    <a href="/CO_Prediction">CO Prediction</a>
+  </div>
+</li>
+
+
+
+<li class="dropdown">
+
+  <button class="dropbtn" >Graphs<i class="fa fa-cube"></i></button>
+
+  <div class="dropdown-content">
+
+    <a href="/co2no2dynamicgraph">Graph 1</a>
+
+    <a href="/ch4dynamicgraph">Graph 2</a>
+
+  </div>
+</li>
+             
+       <li class="dropdown">
+
+  <button class="dropbtn" >Plots<i class="fa fa-globe"></i></button>
+
+  <div class="dropdown-content">
+
+    <a href="/Global_yearly_average_tempreature">Global yearly average tempreature</a>
+
+    <a href="/Measurement">Measurement </a>
+
+    <a href="/Per_month">Per Month</a>
+
+    <a href="/Solar">Solar</a>
+
+  </div>
+</li>
+ 
+
+
+
+<li class="dropdown">
+
+  <button class="dropbtn" >Analysis<i class="fa fa-globe"></i></button>
+
+  <div class="dropdown-content">
+
+    <a href="/CO_Analysis">CO Analysis</a>
+
+    <a href="/CO2_Analysis">CO2 Analysis</a>
+
+    <a href="/NO2_Analysis">NO2 Analysis </a>
+
+    <a href="/O3_Analysis">O3 Analysis</a>
+
+    <a href="/SO2_Analysis">SO2 Analysis</a>
+
+  </div>
+</li>
+
+
+
+                
+
+<li class="dropdown">
+
+  <button class="dropbtn">Documentation <i class="fa fa-fw fa-book"></i></button>
+
+  <div class="dropdown-content">
+
+     <a target="_blank" href="/UserManual">User Manual</a>
+
+    <a target="_blank" href="/InputSources">Input Sources</a>
+
+  </div>
+</li>
+
+
+
+
+
+
+        
+<li>
+                
+    <button class="dropbtn" onclick="document.location='/Feedback'">Feedback<i class="fa fa-fw fa-envelope"></i> </button>
+</li> 
+
+
+                
+    <!-- Insert Github Link Below -->
+<li>
+                
+    <button class="dropbtn"  target="_blank" onclick="document.location='https://github.com/thechillyweather'">Github <i class="fa fa-github"></i></button>
+</li>
+
+
+
+                    
+         
+ </ul>
+
+
+    
+        </div>
+  
+      </div>
+    
+</nav>
+   
+
+
+
+<div id="background-wrap">
+		<div class="x1">
+			<div class="cloud"></div>
+		</div>
+
+		<div class="x2">
+			<div class="cloud"></div>
+		</div>
+
+		<div class="x3">
+			<div class="cloud"></div>
+		</div>
+
+		<div class="x4">
+			<div class="cloud"></div>
+		</div>
+
+		<div class="x5">
+			<div class="cloud"></div>
+		</div>
+
+</div>
+
+
+
+
+
+
+
+ <div class = 'container'>
+     
+   <div class = 'row'>
+         
+   <div class = 'col-md-6'><br>
+            
+    <h1><b>  <center> Global Warming Analysis and Prediction using Machine Learning </center>  </b> </h1><br>
+        
+        <p>
+
+Global warming and climate change are growing threats to the existance of our species on Earth. 
+While these two terms are used interchangibly, global warming is only referring to the change in global temperatures, 
+where climate change involves the change in global temperatures along with the effects of this change. 
+Eventhough a majority of the scientific community is in consensus about the existence of global warming, 
+its causes, and its threat to humanity, there are many people that deny this reality. 
+The aim of this project is to explore the data surounding global warming and 
+its effects to bring awareness to this impending global crisis and to aid in conversations regarding mitigative efforts 
+and solutions.
+
+</p>
+
+
+     
+
+
+
+<h1> <b>  <center> Global Tempreature Changes </center>  </b> </h1>
+
+						
+
+						<p>
+								It is important to note that most climate research uses the temperature anomaly measurement rather than raw temperature values. 
+								This temperature anomaly refers to variations in temperature from a baseline, the average global temperature recorded from 1951 through 1980.
+						</p>
+
+						<b>
+
+
+</div>
+
+<div class = 'col-md-6'>
+                     
+   <a href = /Prediction_Form><img src="{{ url_for('static',filename='Prediction.jpg') }}" alt = "Global" width = "100%" height = "100%" ></a>
+                   
+ </div>
+
+<center><h1>Visualizations</h1><br></center>
+
+
+<div class = 'row'>
+                   
+ <div class = 'col-md-6'>
+                     
+   <a href = /Global_yearly_average_tempreature><img src="{{ url_for('static',filename='Global yearly average tempreature.jpg') }}" alt = "Global" width = "100%" height = "100%" ></a>
+                   
+ </div> 
+                    
+
+<div class = 'col-md-6'>
+                        
+<a href = /Measurement><img src="{{ url_for('static',filename='Measurement.jpg') }}" alt = "Measure" width = "100%" height = "100%"</a>
+                    
+</div>
+               
+
+ </div> 
+               
+
+
+ <div class = 'row'>
+                   
+ <div class = 'col-md-6'>
+                        
+<a href = /Per_month><img src="{{ url_for('static',filename='Per month.jpg') }}" alt = "Per" width = "100%" height = "100%"</a>
+                   
+ </div>
+                  
+
+  <div class = 'col-md-6'>
+                       
+ <a href = /Solar><img src="{{ url_for('static',filename='Solar.jpg') }}" alt = "Sol" width = "100%" height = "100%"</a>
+                   
+ </div>
+                
+</div>            
+            
+
+
+
+      
+ </div>
+
+   
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js">
+</script>
+
+
+
+</html>

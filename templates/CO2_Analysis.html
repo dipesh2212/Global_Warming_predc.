@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href= "{{ url_for('static',filename='plot.css') }}">
+    <link rel="stylesheet" href= "{{ url_for('static',filename='UserManual.css') }}">
+    <link rel="stylesheet" href= "{{ url_for('static',filename='clous.css') }}">
+    <link rel="stylesheet" href= "{{ url_for('static',filename='tables.css') }}">
+
+  
+     
+    <title>CO2 Analysis</title>
+</head>
+
+<body >
+    <!-- Create the top bar -->
+    
+<nav class="navbar navbar-default">
+
+
+        
+<div class="container-fluid">
+    
+  <!-- Brand and toggle get grouped for better mobile display -->
+            
+<div class="navbar-header">
+                
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+
+                
+<span class="sr-only">Toggle navigation</span>
+       
+
+         <span class="icon-bar"></span>
+        
+
+        <span class="icon-bar"></span>
+         
+
+       <span class="icon-bar"></span>
+             
+   </button>
+         
+
+       <a class="navbar-brand" href="/Home">Home  <i class="fa fa-home"></i></a>
+       
+
+     </div>
+
+
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+      
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+   
+             <ul class="nav navbar-nav navbar-right">
+             
+<li class="dropdown">
+
+  <button class="dropbtn">Prediction  <i class="fa fa-thermometer"></i></button>
+
+  <div class="dropdown-content">
+
+    <a href="/Prediction_Form">Countrywise Weather Prediction</a>
+
+    <a href="/Global_Prediction">Global Weather Prediction</a>
+
+  </div>
+</li>
+
+<li class="dropdown">
+
+  <button class="dropbtn">Gases Prediction <i class="fa fa-soundcloud"></i></button>
+
+  <div class="dropdown-content">
+
+     <a href="/Carbon_Prediction">Carbon Prediction</a>
+
+    <a href="/OzonePrediction">Ozone Prediction</a>
+
+    <a href="/SO2_Prediction">SO2 Prediction</a>
+
+    <a href="/NO2_Prediction">NO2 Prediction</a>
+
+    <a href="/CO_Prediction">CO Prediction</a>
+  </div>
+</li>
+
+
+
+<li class="dropdown">
+
+  <button class="dropbtn" >Graphs<i class="fa fa-cube"></i></button>
+
+  <div class="dropdown-content">
+
+    <a href="/co2no2dynamicgraph">Graph 1</a>
+
+    <a href="/ch4dynamicgraph">Graph 2</a>
+
+  </div>
+</li>
+             
+       <li class="dropdown">
+
+  <button class="dropbtn" >Plots<i class="fa fa-globe"></i></button>
+
+  <div class="dropdown-content">
+
+    <a href="/Global_yearly_average_tempreature">Global yearly average tempreature</a>
+
+    <a href="/Measurement">Measurement </a>
+
+    <a href="/Per_month">Per Month</a>
+
+    <a href="/Solar">Solar</a>
+
+  </div>
+</li>
+ 
+
+
+
+<li class="dropdown">
+
+  <button class="dropbtn" >Analysis<i class="fa fa-globe"></i></button>
+
+  <div class="dropdown-content">
+
+    <a href="/CO_Analysis">CO Analysis</a>
+
+    <a href="/CO2_Analysis">CO2 Analysis</a>
+
+    <a href="/NO2_Analysis">NO2 Analysis </a>
+
+    <a href="/O3_Analysis">O3 Analysis</a>
+
+    <a href="/SO2_Analysis">SO2 Analysis</a>
+
+  </div>
+</li>
+
+
+
+                
+
+<li class="dropdown">
+
+  <button class="dropbtn">Documentation <i class="fa fa-fw fa-book"></i></button>
+
+  <div class="dropdown-content">
+
+     <a target="_blank" href="/UserManual">User Manual</a>
+
+    <a target="_blank" href="/InputSources">Input Sources</a>
+
+  </div>
+</li>
+
+
+
+
+
+
+        
+<li>
+                
+    <button class="dropbtn" onclick="document.location='/Feedback'">Feedback<i class="fa fa-fw fa-envelope"></i> </button>
+</li> 
+
+
+                
+    <!-- Insert Github Link Below -->
+<li>
+                
+    <button class="dropbtn"  target="_blank" onclick="document.location='https://github.com/thechillyweather'">Github <i class="fa fa-github"></i></button>
+</li>
+
+
+
+                    
+         
+ </ul>
+
+
+    
+        </div>
+  
+      </div>
+    
+</nav>
+
+
+
+
+
+<div id="background-wrap">
+		<div class="x1">
+			<div class="cloud"></div>
+		</div>
+
+		<div class="x2">
+			<div class="cloud"></div>
+		</div>
+
+		<div class="x3">
+			<div class="cloud"></div>
+		</div>
+
+		<div class="x4">
+			<div class="cloud"></div>
+		</div>
+
+		<div class="x5">
+			<div class="cloud"></div>
+		</div>
+
+</div>
+
+
+
+    <div class = "container">
+
+        <div class = "row">
+
+            <div class="col-md-12"> <br>
+
+                <h1>CO<sub>2</sub> Analysis</h1>
+
+
+                    <center><img src="{{ url_for('static',filename='co2_graph.jpg') }}" alt="co2_graph"> </center>
+
+
+			
+				
+				
+				<h3> The above Graph Determines,</h3>
+			
+			<ul>
+			<li>x-axis shows Yers from 1800 to 2020</li><br/>
+
+			<li>y-axis shows Carbon Dioxide(CO<sub>2</sub>) values in ppmv (parts per million by volume)</li><br/>
+
+			<li>A thick orange Line shows the increased values of CO<sub>2</sub> </li><br/>
+
+			<li>Red line shows drastically increase in CO<sub>2</sub> values</li><br/>
+				
+			</ul>
+
+
+			
+				
+
+
+				<h2>Properties of CO<sub>2</sub></h2>
+
+<table>
+  <tr>
+    <th>Chemical Formula</th>
+    <th>CO<sub>2</sub></th>
+  </tr>
+
+  <tr>
+    <td>MOlar Mass</td>
+    <td>44.009 g &#x2219;mol<sup>-1</sup></td>
+  </tr>
+
+  <tr>
+    <td>Appearance</td>
+    <td>Colorless gas</td>
+  </tr>
+
+
+  <tr>
+    <td>Density</td>
+    <td>1562 kg/m<sup>3</sup> (solid at 1 atm (100 kPa) and -78.5 &deg;C (-109.3 &deg;F))
+1101 kg/m3 (liquid at saturation -37 &deg;C (-35 &deg;F))
+1.977 kg/m3 (gas at 1 atm (100 kPa) and 0 &deg;C (32 &deg;F))</td>
+  </tr>
+
+  <tr>
+    <td>Melting Point</td>
+    <td>-56.6 &deg;C; -69.8 &deg;F; 216.6 K (triple point at 5.1 atm (0.52 MPa))</td>
+  </tr>
+
+  <tr>
+    <td>Critical point (T, P)</td>
+    <td>31.1 &deg;C (304.2 K), 7.38 MPa (72.8 atm)</td>
+  </tr>
+
+  <tr>
+    <td>Solubility in water</td>
+    <td>1.45 g/L at 25 &deg;C (77 &deg;F), 100 kPa (0.99 atm)</td>
+  </tr>
+
+  <tr>
+    <td>Vapor pressure</td>
+    <td>5.73 MPa (56.6 atm) (20 &deg;C (293 K))</td>
+  </tr>
+ 
+  <tr>
+    <td>Magnetic susceptibility</td>
+    <td>-20.5&#x2219;10-6 cm<sup>3</sup>/mol</td>
+  </tr>
+
+  <tr>
+    <td>Viscosity</td>
+    <td>14.90 &mu; Pa &#x2219; s at 25 &deg;C (298 K)
+70 &mu;Pa &#x2219; s at -78.5 &deg;C (194.7 K)</td>
+  </tr>
+
+</table>
+
+				</p>
+
+
+
+				
+				<center><img src="Images/co2.gif" alt="co2"> </center>
+
+
+				<h3> The above Graph Determines,</h3>
+			
+			<ul>
+			<li>x-axis shows Yers from 1750 to 2020</li><br/>
+
+			<li>Left y-axis shows Atmospheric Carbon Dioxide(CO<sub>2</sub>) values in ppm (parts per million )</li><br/>
+
+			<li>Right y-axis shows Carbon Dioxide(CO<sub>2</sub>) Emissions values in billion of tons</li><br/>
+
+			<li>Pink Line shows the Atmospheric Carbon Dioxide(CO<sub>2</sub>) values </li><br/>
+
+			<li>Blue line shows the Carbon Dioxide(CO<sub>2</sub>) Emissions values</li><br/>
+				
+			</ul>
+
+
+
+
+				<center><img src="Images/co2_growth.jpg" alt="co2_growth" height=600px width=1000px> </center>
+
+
+
+
+			<h3> The above Graph Determines,</h3>
+			
+			<ul>
+			<li>x-axis shows Yers </li><br/>
+
+			<li>y-axis shows Carbon Dioxide(CO<sub>2</sub>) values in ppm (parts per million)</li><br/>
+
+			<li>Golden Line shows the increased values of CO<sub>2</sub> </li><br/>
+
+			<li>Dashed White Line shows neutral CO<sub>2</sub> values</li><br/>
+				
+			</ul>
+
+
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<div class = 'row'>
+
+         
+                 <div class = 'col-md-9'><br>
+<button class="btn" onclick="document.location='https://drive.google.com/drive/folders/1bT8_mp40AV-rPRrec7001sZifbVu3HlF?usp=sharing'"><i class="fa fa-cloud-download"></i> Input Sources </button>
+				</div>
+				
+				<div class = 'col-md-3'><br>
+<button class="btn" onclick="document.location='CO2_Detail_Analysis.html'"><i class="fa fa-download"></i> Read Full Article</button>
+	
+			</div>
+</div>
+
+
+
+			</div>
+			</div>
+			</div>
+
+
+
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</html>

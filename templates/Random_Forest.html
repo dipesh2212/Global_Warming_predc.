@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+<head>
+    
+<meta charset="UTF-8">
+ 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+<link rel="stylesheet" href= "{{ url_for('static',filename='styles.css') }}">
+
+<link rel="stylesheet" href= "{{ url_for('static',filename='UserManual.css') }}">
+    
+
+<title>Random Forest</title>
+
+</head>
+
+
+
+<body >
+    <!-- Create the top bar -->
+    
+<nav class="navbar navbar-default">
+
+
+        
+<div class="container-fluid">
+    
+  <!-- Brand and toggle get grouped for better mobile display -->
+            
+<div class="navbar-header">
+                
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+
+                
+<span class="sr-only">Toggle navigation</span>
+       
+
+         <span class="icon-bar"></span>
+        
+
+        <span class="icon-bar"></span>
+         
+
+       <span class="icon-bar"></span>
+             
+   </button>
+         
+
+       <a class="navbar-brand" href="/Home">Home  <i class="fa fa-home"></i></a>
+       
+
+     </div>
+
+
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+      
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+   
+             <ul class="nav navbar-nav navbar-right">
+             
+<li class="dropdown">
+
+  <button class="dropbtn">Prediction  <i class="fa fa-thermometer"></i></button>
+
+  <div class="dropdown-content">
+
+    <a href="/Prediction_Form">Countrywise Weather Prediction</a>
+
+    <a href="/Global_Prediction">Global Weather Prediction</a>
+
+  </div>
+</li>
+
+<li class="dropdown">
+
+  <button class="dropbtn">Gases Prediction <i class="fa fa-soundcloud"></i></button>
+
+  <div class="dropdown-content">
+
+     <a href="/Carbon_Prediction">Carbon Prediction</a>
+
+    <a href="/OzonePrediction">Ozone Prediction</a>
+
+    <a href="/SO2_Prediction">SO2 Prediction</a>
+
+    <a href="/NO2_Prediction">NO2 Prediction</a>
+
+    <a href="/CO_Prediction">CO Prediction</a>
+  </div>
+</li>
+
+
+
+<li class="dropdown">
+
+  <button class="dropbtn" >Graphs<i class="fa fa-cube"></i></button>
+
+  <div class="dropdown-content">
+
+    <a href="/co2no2dynamicgraph">Graph 1</a>
+
+    <a href="/ch4dynamicgraph">Graph 2</a>
+
+  </div>
+</li>
+             
+       <li class="dropdown">
+
+  <button class="dropbtn" >Plots<i class="fa fa-globe"></i></button>
+
+  <div class="dropdown-content">
+
+    <a href="/Global_yearly_average_tempreature">Global yearly average tempreature</a>
+
+    <a href="/Measurement">Measurement </a>
+
+    <a href="/Per_month">Per Month</a>
+
+    <a href="/Solar">Solar</a>
+
+  </div>
+</li>
+ 
+
+
+
+<li class="dropdown">
+
+  <button class="dropbtn" >Analysis<i class="fa fa-globe"></i></button>
+
+  <div class="dropdown-content">
+
+    <a href="/CO_Analysis">CO Analysis</a>
+
+    <a href="/CO2_Analysis">CO2 Analysis</a>
+
+    <a href="/NO2_Analysis">NO2 Analysis </a>
+
+    <a href="/O3_Analysis">O3 Analysis</a>
+
+    <a href="/SO2_Analysis">SO2 Analysis</a>
+
+  </div>
+</li>
+
+
+
+                
+
+<li class="dropdown">
+
+  <button class="dropbtn">Documentation <i class="fa fa-fw fa-book"></i></button>
+
+  <div class="dropdown-content">
+
+     <a target="_blank" href="/UserManual">User Manual</a>
+
+    <a target="_blank" href="/InputSources">Input Sources</a>
+
+  </div>
+</li>
+
+
+
+
+
+
+        
+<li>
+                
+    <button class="dropbtn" onclick="document.location='/Feedback'">Feedback<i class="fa fa-fw fa-envelope"></i> </button>
+</li> 
+
+
+                
+    <!-- Insert Github Link Below -->
+<li>
+                
+    <button class="dropbtn"  target="_blank" onclick="document.location='https://github.com/thechillyweather'">Github <i class="fa fa-github"></i></button>
+</li>
+
+
+
+                    
+         
+ </ul>
+
+
+    
+        </div>
+  
+      </div>
+    
+</nav>
+
+
+
+
+
+                     <div class = 'container'>
+
+                <div class = 'row'>
+         
+                     <div class = 'col-md-12'><br>
+
+
+
+
+
+
+
+                <h2> <b>	Random Forest </b> </h2>
+				Random forest is a flexible, easy to use machine learning algorithm that produces, even without hyper-parameter tuning, a great result most of the time. 
+				It is also one of the most used algorithms, because of its simplicity and diversity (it can be used for both classification and regression tasks). 
+				In this post we &rsquo;ll learn how the random forest algorithm works, how it differs from other algorithms and how to use it.
+				<br/>
+			<h2> <b> WHAT IS RANDOM FOREST? </b> </h2>			
+				 <b>Random forest is a supervised learning algorithm. The &ldquo; forest &rdquo; it builds, is an ensemble of decision trees, usually trained with the &ldquo; bagging &rdquo; method. </b>
+					The general idea of the bagging method is that a combination of learning models increases the overall result.
+				<br/>
+			<h2> <b> HOW RANDOM FOREST WORKS  </b> </h2>
+				Random forest is a supervised learning algorithm. The &ldquo; forest &rdquo; it builds, is an ensemble of decision trees, usually trained with the &ldquo; bagging &rdquo; method. 
+				The general idea of the bagging method is that a combination of learning models increases the overall result.
+				Put simply: random forest builds multiple decision trees and merges them together to get a more accurate and stable prediction.
+				One big advantage of random forest is that it can be used for both classification and regression problems, which form the majority of current machine learning systems. 
+				Let's look at random forest in classification, since classification is sometimes considered the building block of machine learning.
+				Below you can see how a random forest would look like with three trees:<br/>
+ 
+ <img src = "{{ url_for('static',filename='RandomForest.jpg') }}" >
+				<br/>
+				With random forest, you can also deal with regression tasks by using the algorithm's regressor.
+				Random forest adds additional randomness to the model, while growing the trees. Instead of searching for the most important feature while splitting a node, 
+				it searches for the best feature among a random subset of features. This results in a wide diversity that generally results in a better model.<br/>
+
+			<h2> <b> Random Forest can&rsquo;t predict for more than t+1 right?  </b> </h2> 
+					This is true that one can&rsquo;t use Random Forest to forecast into more than 1 value or indefinitely into the future as one can with linear model. 
+					What this means is that when you&rsquo;re trying to predict 6 months into the future, you&rsquo;ll need to actually use 6 months of past data as the input.
+					As an example, if my model is able to predict 6 months into the future; to predict the traffic at 1 July 2019 I will need to use the data points on for 1 Jan 2019 
+					(for simplification, I assume all months have 30 days in a month). To predict for 2 July 2019, I&rsquo;ll use 2 Jan 2019. And so on, until 30th June 2019, 
+					which gives me prediction for 30th Dec 2019.
+					The downside of using this method is inability to use data that is closer to the present (ie using 30th June 2019 data for 1 July 2019 prediction as in the above example). 
+					In our scenario, as what we&rsquo;re really interested in is really the amount of traffic that is occurring 6 months down the road, this is still acceptable.
+					<br/>
+
+
+
+<p></p>
+
+
+<button class="btn" onclick="document.location='https://en.wikipedia.org/wiki/Random_forest#:~:text=Random%20forests%20or%20random%20decision,average%20prediction%20(regression)%20of%20the'"><i class="fa fa-download"></i> Wikipedia </button>
+            
+
+
+
+
+
+
+                        </div>
+ 
+                   </div>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</html>

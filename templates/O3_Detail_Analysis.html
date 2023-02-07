@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href= "{{ url_for('static',filename='plot.css') }}">
+    <link rel="stylesheet" href= "{{ url_for('static',filename='UserManual.css') }}">
+    <link rel="stylesheet" href= "{{ url_for('static',filename='clous.css') }}">
+    <link rel="stylesheet" href= "{{ url_for('static',filename='tables.css') }}">
+
+  
+     
+    <title>O3 Detail Analysis</title>
+</head>
+
+<body >
+    <!-- Create the top bar -->
+    
+<nav class="navbar navbar-default">
+
+
+        
+<div class="container-fluid">
+    
+  <!-- Brand and toggle get grouped for better mobile display -->
+            
+<div class="navbar-header">
+                
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+
+                
+<span class="sr-only">Toggle navigation</span>
+       
+
+         <span class="icon-bar"></span>
+        
+
+        <span class="icon-bar"></span>
+         
+
+       <span class="icon-bar"></span>
+             
+   </button>
+         
+
+       <a class="navbar-brand" href="/Home">Home  <i class="fa fa-home"></i></a>
+       
+
+     </div>
+
+
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+      
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+   
+             <ul class="nav navbar-nav navbar-right">
+             
+<li class="dropdown">
+
+  <button class="dropbtn">Prediction  <i class="fa fa-thermometer"></i></button>
+
+  <div class="dropdown-content">
+
+    <a href="/Prediction_Form">Countrywise Weather Prediction</a>
+
+    <a href="/Global_Prediction">Global Weather Prediction</a>
+
+  </div>
+</li>
+
+<li class="dropdown">
+
+  <button class="dropbtn">Gases Prediction <i class="fa fa-soundcloud"></i></button>
+
+  <div class="dropdown-content">
+
+     <a href="/Carbon_Prediction">Carbon Prediction</a>
+
+    <a href="/OzonePrediction">Ozone Prediction</a>
+
+    <a href="/SO2_Prediction">SO2 Prediction</a>
+
+    <a href="/NO2_Prediction">NO2 Prediction</a>
+
+    <a href="/CO_Prediction">CO Prediction</a>
+  </div>
+</li>
+
+
+
+<li class="dropdown">
+
+  <button class="dropbtn" >Graphs<i class="fa fa-cube"></i></button>
+
+  <div class="dropdown-content">
+
+    <a href="/co2no2dynamicgraph">Graph 1</a>
+
+    <a href="/ch4dynamicgraph">Graph 2</a>
+
+  </div>
+</li>
+             
+       <li class="dropdown">
+
+  <button class="dropbtn" >Plots<i class="fa fa-globe"></i></button>
+
+  <div class="dropdown-content">
+
+    <a href="/Global_yearly_average_tempreature">Global yearly average tempreature</a>
+
+    <a href="/Measurement">Measurement </a>
+
+    <a href="/Per_month">Per Month</a>
+
+    <a href="/Solar">Solar</a>
+
+  </div>
+</li>
+ 
+
+
+
+<li class="dropdown">
+
+  <button class="dropbtn" >Analysis<i class="fa fa-globe"></i></button>
+
+  <div class="dropdown-content">
+
+    <a href="/CO_Analysis">CO Analysis</a>
+
+    <a href="/CO2_Analysis">CO2 Analysis</a>
+
+    <a href="/NO2_Analysis">NO2 Analysis </a>
+
+    <a href="/O3_Analysis">O3 Analysis</a>
+
+    <a href="/SO2_Analysis">SO2 Analysis</a>
+
+  </div>
+</li>
+
+
+
+                
+
+<li class="dropdown">
+
+  <button class="dropbtn">Documentation <i class="fa fa-fw fa-book"></i></button>
+
+  <div class="dropdown-content">
+
+     <a target="_blank" href="/UserManual">User Manual</a>
+
+    <a target="_blank" href="/InputSources">Input Sources</a>
+
+  </div>
+</li>
+
+
+
+
+
+
+        
+<li>
+                
+    <button class="dropbtn" onclick="document.location='/Feedback'">Feedback<i class="fa fa-fw fa-envelope"></i> </button>
+</li> 
+
+
+                
+    <!-- Insert Github Link Below -->
+<li>
+                
+    <button class="dropbtn"  target="_blank" onclick="document.location='https://github.com/thechillyweather'">Github <i class="fa fa-github"></i></button>
+</li>
+
+
+
+                    
+         
+ </ul>
+
+
+    
+        </div>
+  
+      </div>
+    
+</nav>
+
+
+
+
+
+<div id="background-wrap">
+		<div class="x1">
+			<div class="cloud"></div>
+		</div>
+
+		<div class="x2">
+			<div class="cloud"></div>
+		</div>
+
+		<div class="x3">
+			<div class="cloud"></div>
+		</div>
+
+		<div class="x4">
+			<div class="cloud"></div>
+		</div>
+
+		<div class="x5">
+			<div class="cloud"></div>
+		</div>
+
+</div>
+
+
+
+    <div class = "container">
+        <div class = "row">
+            <div class="col-md-12"> <br>
+                <h1>Ozone Analysis</h1>
+                    
+<center><button class="btn" onclick="document.location='https://drive.google.com/drive/folders/1xYhUQPQXnCVvyY_xRmjODhGWUjDib1cx?usp=sharing'"><i class="fa fa-cloud-download"></i> Input Sources </button></center>
+            
+
+
+
+				<h1>Introduction to Ozone</h1>
+<ul>
+<li>Ozone is an inorganic molecule with the chemical formula O3. </li><br/>
+<li>It is a pale blue gas with a distinctively pungent smell. </li><br/>
+<li>It is an allotrope of oxygen that is much less stable than the diatomic allotrope O2, breaking down in the lower atmosphere to O2 (dioxygen). </li><br/>
+<li>Ozone is formed from dioxygen by the action of ultraviolet (UV) light and electrical discharges within the Earth's atmosphere. </li><br/>
+<li>It is present in very low concentrations throughout the latter, with its highest concentration high in the ozone layer of the stratosphere, 
+    which absorbs most of the Sun's ultraviolet (UV) radiation.</li><br/>
+<li>Ozone's odour is reminiscent of chlorine, and detectable by many people at concentrations of as little as 0.1 ppm in air. </li><br/>
+<li>Ozone's O3 structure was determined in 1865. The molecule was later proven to have a bent structure and to be weakly paramagnetic. </li><br/>
+<li>In standard conditions, ozone is a pale blue gas that condenses at cryogenic temperatures to a dark blue liquid and finally a violet-black solid. </li><br/>
+<li>Ozone's instability with regard to more common dioxygen is such that both concentrated gas and liquid ozone may decompose explosively at elevated temperatures or 
+    fast warming to the boiling point. It is therefore used commercially only in low concentrations.</li><br/>
+<li>Ozone is a powerful oxidant (far more so than dioxygen) and has many industrial and consumer applications related to oxidation. </li><br/>
+<li>This same high oxidizing potential, however, causes ozone to damage mucous and respiratory tissues in animals, and also tissues in plants, and above concentrations of about 0.1 ppm. </li><br/>
+<li>While this makes ozone a potent respiratory hazard and pollutant near ground level, a higher concentration in the ozone layer (from two to eight ppm) is beneficial, 
+    preventing damaging UV light from reaching the Earth's surface.</li><br/>
+</ul>
+
+
+
+				<h2>Properties of O<sub>3</sub></h2>
+
+<table>
+  <tr>
+    <th>Chemical Formula</th>
+    <th>O<sub>3</sub></th>
+  </tr>
+
+  <tr>
+    <td>MOlar Mass</td>
+    <td>47.997 g&#x2219;mol-1</td>
+  </tr>
+
+  <tr>
+    <td>Appearance</td>
+    <td>Colourless to pale blue gas</td>
+  </tr>
+
+
+  <tr>
+    <td>Density</td>
+    <td>2.144 mg cm<sup>-3</sup> (at 0  &deg;C)</td>
+  </tr>
+
+  <tr>
+    <td>Melting Point</td>
+    <td>-192.2  &deg;C; -313.9  &deg;F; 81.0 K</td>
+  </tr>
+
+  <tr>
+    <td>Boiling Point</td>
+    <td>-112  &deg;C; -170  &deg;F; 161 K</td>
+  </tr>
+
+  <tr>
+    <td>Solubility in water</td>
+    <td>1.05 g L-1 (at 0  &deg;C)</td>
+  </tr>
+
+  <tr>
+    <td>Vapor pressure</td>
+    <td>55.7 atm (-12.15  &deg;C or 10.13  &deg;F or 261.00 K)</td>
+  </tr>
+ 
+  <tr>
+    <td>Magnetic susceptibility </td>
+    <td>+6.7&#x2219;10-6 cm<sup>3</sup>/mol</td>
+  </tr>
+
+  <tr>
+    <td>Refractive Index(n)</td>
+    <td>1.2226 (liquid), 1.00052 (gas, STP, 546 nm-note high dispersion)</td>
+  </tr>
+
+</table>
+
+
+
+
+
+				<h1>Atmospheric Presence</h1>
+<ul>
+<li>The highest levels of ozone in the atmosphere are in the stratosphere, in a region also known as the ozone layer between about 10 km and 
+    50 km above the surface (or between about 6 and 31 miles). However, even in this "layer", the ozone concentrations are only two to eight parts per million, 
+    so most of the oxygen there is dioxygen, O2, at about 210,000 parts per million by volume.</li><br/>
+<li>Ozone in the stratosphere is mostly produced from short-wave ultraviolet rays between 240 and 160 nm. </li><br/>
+<li>Oxygen starts to absorb weakly at 240 nm in the Herzberg bands, but most of the oxygen is dissociated by absorption in the 
+    strong Schumann - Runge bands between 200 and 160 nm where ozone does not absorb. While shorter wavelength light, extending to even the X-Ray limit, 
+    is energetic enough to dissociate molecular oxygen, there is relatively little of it, and, the strong solar emission at Lyman-alpha, 121 nm, 
+    falls at a point where molecular oxygen absorption is a minimum.</li><br/>
+<li>The highest levels of ozone in the atmosphere are in the stratosphere, in a region also known as the ozone layer between about 10 km and
+    50 km above the surface (or between about 6 and 31 miles). However, even in this "layer", the ozone concentrations are only two to eight parts per million, 
+    so most of the oxygen there is dioxygen, O2, at about 210,000 parts per million by volume.</li><br/>
+<li>Ozone in the stratosphere is mostly produced from short-wave ultraviolet rays between 240 and 160 nm. </li><br/>
+<li>Oxygen starts to absorb weakly at 240 nm in the Herzberg bands, but most of the oxygen is dissociated by absorption in the strong Schumann - Runge bands 
+    between 200 and 160 nm where ozone does not absorb. While shorter wavelength light, extending to even the X-Ray limit, is energetic enough to dissociate molecular oxygen, 
+    there is relatively little of it, and, the strong solar emission at Lyman-alpha, 121 nm, falls at a point where molecular oxygen absorption is a minimum.</li><br/>
+</ul>
+
+
+
+
+				<h1>Ozone and Global Warming</h1>
+<ul>
+<li>Ozone (O<sub>3</sub>) depletion does not cause global warming, but both of these environmental problems have a common cause: human activities that release pollutants into the atmosphere altering it.</li><br/>
+<li>Global warming is caused primarily by putting too much carbon dioxide into the atmosphere when coal, oil, and natural gas are burned to generate electricity or to run our cars.</li><br/>
+<li>Carbon dioxide spreads around the planet like a blanket, and is one of the main gases responsible for the absorption of infrared radiation (felt as heat), 
+    which comprises the bulk of solar energy.</li><br/>
+<li>Ozone depletion occurs when chlorofluorocarbons (CFCs) and halons - gases formerly found in aerosol spray cans and refrigerants - are released into the atmosphere.</li><br/>
+<li>Ozone sits in the upper atmosphere and absorbs ultraviolet radiaton, another type of solar energy that's harmful to humans, animals and plants. </li><br/>
+<li>CFCs and halons cause chemical reactions that break down ozone molecules, reducing ozone's ultraviolet radiation-absorbing capacity.</li><br/>
+</ul>				
+
+
+
+                    <center><img src="{{ url_for('static',filename='o3_graph.svg') }}" alt="o3_graph"> </center>
+
+
+
+				<h3> The above Graph Determines,</h3>
+			
+			<ul>
+			<li>x-axis shows Yers from 1961 to 2014</li><br/>
+
+			<li>y-axis shows Ozone(O<sub>3</sub>) values in tonnes</li><br/>
+
+			<li>Brown Line shows the natural emissions of O<sub>3</sub> </li><br/>
+
+			<li>Blue line shows drastically emissions of  O<sub>3</sub> values</li><br/>
+				
+			</ul>
+
+
+
+				<h1>The ozone hole</h1>
+<ul>
+<li>The term &lsquo;ozone hole&rsquo; refers to the depletion of the protective ozone layer in the upper atmosphere (stratosphere) over Earth's polar regions. </li><br/>
+<li>People, plants, and animals living under the ozone hole are harmed by the solar radiation now reaching the Earth's surface - where it causes health problems, from eye damage to skin cancer.</li><br/>
+<li>Stratospheric ozone is constantly produced by the action of the sun's ultraviolet radiation on oxygen molecules (known as photochemical reactions).</li><br/> 
+<li>Although ozone is created primarily at tropical latitudes, large-scale air circulation patterns in the lower stratosphere move ozone toward the poles, where its concentration builds up.</li><br/>
+<li>In addition to this global motion, strong winter polar vortices are also important to concentrating ozone at the poles.</li><br/> 
+<li>During the continuously dark polar winter, the air inside the polar vortices becomes extremely cold, a necessary condition for polar stratospheric cloud formation.</li><br/>
+<li>Polar stratospheric clouds create the conditions for drastic ozone destruction, providing a surface for chlorine to change into ozone-destroying form. </li><br/>
+<li>They generally last until the sun comes up in the spring.</li><br/>
+</ul>
+
+
+<p></p>
+
+
+<center><button class="btn" onclick="document.location='https://en.wikipedia.org/wiki/Ozone'"><i class="fa fa-wikipedia-w"></i> Wikipedia</button></center>
+
+
+
+</div>
+
+             </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</html>

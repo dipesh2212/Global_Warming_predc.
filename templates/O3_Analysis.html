@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href= "{{ url_for('static',filename='plot.css') }}">
+    <link rel="stylesheet" href= "{{ url_for('static',filename='UserManual.css') }}">
+    <link rel="stylesheet" href= "{{ url_for('static',filename='clous.css') }}">
+    <link rel="stylesheet" href= "{{ url_for('static',filename='tables.css') }}">
+
+  
+     
+    <title>O3 Analysis</title>
+</head>
+
+<body >
+    <!-- Create the top bar -->
+    
+<nav class="navbar navbar-default">
+
+
+        
+<div class="container-fluid">
+    
+  <!-- Brand and toggle get grouped for better mobile display -->
+            
+<div class="navbar-header">
+                
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+
+                
+<span class="sr-only">Toggle navigation</span>
+       
+
+         <span class="icon-bar"></span>
+        
+
+        <span class="icon-bar"></span>
+         
+
+       <span class="icon-bar"></span>
+             
+   </button>
+         
+
+       <a class="navbar-brand" href="/Home">Home  <i class="fa fa-home"></i></a>
+       
+
+     </div>
+
+
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+      
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+   
+             <ul class="nav navbar-nav navbar-right">
+             
+<li class="dropdown">
+
+  <button class="dropbtn">Prediction  <i class="fa fa-thermometer"></i></button>
+
+  <div class="dropdown-content">
+
+    <a href="/Prediction_Form">Countrywise Weather Prediction</a>
+
+    <a href="/Global_Prediction">Global Weather Prediction</a>
+
+  </div>
+</li>
+
+<li class="dropdown">
+
+  <button class="dropbtn">Gases Prediction <i class="fa fa-soundcloud"></i></button>
+
+  <div class="dropdown-content">
+
+     <a href="/Carbon_Prediction">Carbon Prediction</a>
+
+    <a href="/OzonePrediction">Ozone Prediction</a>
+
+    <a href="/SO2_Prediction">SO2 Prediction</a>
+
+    <a href="/NO2_Prediction">NO2 Prediction</a>
+
+    <a href="/CO_Prediction">CO Prediction</a>
+  </div>
+</li>
+
+
+
+<li class="dropdown">
+
+  <button class="dropbtn" >Graphs<i class="fa fa-cube"></i></button>
+
+  <div class="dropdown-content">
+
+    <a href="/co2no2dynamicgraph">Graph 1</a>
+
+    <a href="/ch4dynamicgraph">Graph 2</a>
+
+  </div>
+</li>
+             
+       <li class="dropdown">
+
+  <button class="dropbtn" >Plots<i class="fa fa-globe"></i></button>
+
+  <div class="dropdown-content">
+
+    <a href="/Global_yearly_average_tempreature">Global yearly average tempreature</a>
+
+    <a href="/Measurement">Measurement </a>
+
+    <a href="/Per_month">Per Month</a>
+
+    <a href="/Solar">Solar</a>
+
+  </div>
+</li>
+ 
+
+
+
+<li class="dropdown">
+
+  <button class="dropbtn" >Analysis<i class="fa fa-globe"></i></button>
+
+  <div class="dropdown-content">
+
+    <a href="/CO_Analysis">CO Analysis</a>
+
+    <a href="/CO2_Analysis">CO2 Analysis</a>
+
+    <a href="/NO2_Analysis">NO2 Analysis </a>
+
+    <a href="/O3_Analysis">O3 Analysis</a>
+
+    <a href="/SO2_Analysis">SO2 Analysis</a>
+
+  </div>
+</li>
+
+
+
+                
+
+<li class="dropdown">
+
+  <button class="dropbtn">Documentation <i class="fa fa-fw fa-book"></i></button>
+
+  <div class="dropdown-content">
+
+     <a target="_blank" href="/UserManual">User Manual</a>
+
+    <a target="_blank" href="/InputSources">Input Sources</a>
+
+  </div>
+</li>
+
+
+
+
+
+
+        
+<li>
+                
+    <button class="dropbtn" onclick="document.location='/Feedback'">Feedback<i class="fa fa-fw fa-envelope"></i> </button>
+</li> 
+
+
+                
+    <!-- Insert Github Link Below -->
+<li>
+                
+    <button class="dropbtn"  target="_blank" onclick="document.location='https://github.com/thechillyweather'">Github <i class="fa fa-github"></i></button>
+</li>
+
+
+
+                    
+         
+ </ul>
+
+
+    
+        </div>
+  
+      </div>
+    
+</nav>
+
+
+
+
+
+<div id="background-wrap">
+		<div class="x1">
+			<div class="cloud"></div>
+		</div>
+
+		<div class="x2">
+			<div class="cloud"></div>
+		</div>
+
+		<div class="x3">
+			<div class="cloud"></div>
+		</div>
+
+		<div class="x4">
+			<div class="cloud"></div>
+		</div>
+
+		<div class="x5">
+			<div class="cloud"></div>
+		</div>
+
+</div>
+
+
+
+    <div class = "container">
+        <div class = "row">
+            <div class="col-md-12"> <br>
+                <h1>O<sub>3</sub> Analysis</h1>
+
+                    <center><img src="{{ url_for('static',filename='o3_graph.svg') }}" alt="o3_graph" Height=720px Width=1080px> </center>
+
+
+
+				<h3> The above Graph Determines,</h3>
+			
+			<ul>
+			<li>x-axis shows Yers from 1961 to 2014</li><br/>
+
+			<li>y-axis shows Ozone(O<sub>3</sub>) values in tonnes</li><br/>
+
+			<li>Brown Line shows the natural emissions of O<sub>3</sub> </li><br/>
+
+			<li>Blue line shows drastically emissions of  O<sub>3</sub> values</li><br/>
+				
+			</ul>
+
+
+				
+			
+				
+				
+					
+
+
+
+<h2>Properties of O<sub>3</sub></h2>
+
+<table>
+  <tr>
+    <th>Chemical Formula</th>
+    <th>O<sub>3</sub></th>
+  </tr>
+
+  <tr>
+    <td>MOlar Mass</td>
+    <td>47.997 g&#x2219;mol-1</td>
+  </tr>
+
+  <tr>
+    <td>Appearance</td>
+    <td>Colourless to pale blue gas</td>
+  </tr>
+
+
+  <tr>
+    <td>Density</td>
+    <td>2.144 mg cm<sup>-3</sup> (at 0  &deg;C)</td>
+  </tr>
+
+  <tr>
+    <td>Melting Point</td>
+    <td>-192.2  &deg;C; -313.9  &deg;F; 81.0 K</td>
+  </tr>
+
+  <tr>
+    <td>Boiling Point</td>
+    <td>-112  &deg;C; -170  &deg;F; 161 K</td>
+  </tr>
+
+  <tr>
+    <td>Solubility in water</td>
+    <td>1.05 g L-1 (at 0  &deg;C)</td>
+  </tr>
+
+  <tr>
+    <td>Vapor pressure</td>
+    <td>55.7 atm (-12.15  &deg;C or 10.13  &deg;F or 261.00 K)</td>
+  </tr>
+ 
+  <tr>
+    <td>Magnetic susceptibility </td>
+    <td>+6.7&#x2219;10-6 cm<sup>3</sup>/mol</td>
+  </tr>
+
+  <tr>
+    <td>Refractive Index(n)</td>
+    <td>1.2226 (liquid), 1.00052 (gas, STP, 546 nm-note high dispersion)</td>
+  </tr>
+
+</table>
+
+
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+<div class = 'row'>
+
+         
+                 <div class = 'col-md-9'>
+<button class="btn" onclick="document.location='https://drive.google.com/drive/folders/1xYhUQPQXnCVvyY_xRmjODhGWUjDib1cx?usp=sharing'"><i class="fa fa-cloud-download"></i> Input Sources </button>
+				</div>
+				 <div class = 'col-md-3'>
+<button class="btn" onclick="document.location='O3_Detail_Analysis.html'"><i class="fa fa-download"></i> Read Full Article</button>
+				</div>
+</div>
+
+
+
+
+
+
+             </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</html>

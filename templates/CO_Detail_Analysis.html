@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href= "{{ url_for('static',filename='plot.css') }}">
+    <link rel="stylesheet" href= "{{ url_for('static',filename='UserManual.css') }}">
+    <link rel="stylesheet" href= "{{ url_for('static',filename='clous.css') }}">
+    <link rel="stylesheet" href= "{{ url_for('static',filename='tables.css') }}">
+
+  
+     
+    <title>CO Detail Analysis</title>
+</head>
+
+<body >
+    <!-- Create the top bar -->
+    
+<nav class="navbar navbar-default">
+
+
+        
+<div class="container-fluid">
+    
+  <!-- Brand and toggle get grouped for better mobile display -->
+            
+<div class="navbar-header">
+                
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+
+                
+<span class="sr-only">Toggle navigation</span>
+       
+
+         <span class="icon-bar"></span>
+        
+
+        <span class="icon-bar"></span>
+         
+
+       <span class="icon-bar"></span>
+             
+   </button>
+         
+
+       <a class="navbar-brand" href="/Home">Home  <i class="fa fa-home"></i></a>
+       
+
+     </div>
+
+
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+      
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+   
+             <ul class="nav navbar-nav navbar-right">
+             
+<li class="dropdown">
+
+  <button class="dropbtn">Prediction  <i class="fa fa-thermometer"></i></button>
+
+  <div class="dropdown-content">
+
+    <a href="/Prediction_Form">Countrywise Weather Prediction</a>
+
+    <a href="/Global_Prediction">Global Weather Prediction</a>
+
+  </div>
+</li>
+
+<li class="dropdown">
+
+  <button class="dropbtn">Gases Prediction <i class="fa fa-soundcloud"></i></button>
+
+  <div class="dropdown-content">
+
+     <a href="/Carbon_Prediction">Carbon Prediction</a>
+
+    <a href="/OzonePrediction">Ozone Prediction</a>
+
+    <a href="/SO2_Prediction">SO2 Prediction</a>
+
+    <a href="/NO2_Prediction">NO2 Prediction</a>
+
+    <a href="/CO_Prediction">CO Prediction</a>
+  </div>
+</li>
+
+
+
+<li class="dropdown">
+
+  <button class="dropbtn" >Graphs<i class="fa fa-cube"></i></button>
+
+  <div class="dropdown-content">
+
+    <a href="/co2no2dynamicgraph">Graph 1</a>
+
+    <a href="/ch4dynamicgraph">Graph 2</a>
+
+  </div>
+</li>
+             
+       <li class="dropdown">
+
+  <button class="dropbtn" >Plots<i class="fa fa-globe"></i></button>
+
+  <div class="dropdown-content">
+
+    <a href="/Global_yearly_average_tempreature">Global yearly average tempreature</a>
+
+    <a href="/Measurement">Measurement </a>
+
+    <a href="/Per_month">Per Month</a>
+
+    <a href="/Solar">Solar</a>
+
+  </div>
+</li>
+ 
+
+
+
+<li class="dropdown">
+
+  <button class="dropbtn" >Analysis<i class="fa fa-globe"></i></button>
+
+  <div class="dropdown-content">
+
+    <a href="/CO_Analysis">CO Analysis</a>
+
+    <a href="/CO2_Analysis">CO2 Analysis</a>
+
+    <a href="/NO2_Analysis">NO2 Analysis </a>
+
+    <a href="/O3_Analysis">O3 Analysis</a>
+
+    <a href="/SO2_Analysis">SO2 Analysis</a>
+
+  </div>
+</li>
+
+
+
+                
+
+<li class="dropdown">
+
+  <button class="dropbtn">Documentation <i class="fa fa-fw fa-book"></i></button>
+
+  <div class="dropdown-content">
+
+     <a target="_blank" href="/UserManual">User Manual</a>
+
+    <a target="_blank" href="/InputSources">Input Sources</a>
+
+  </div>
+</li>
+
+
+
+
+
+
+        
+<li>
+                
+    <button class="dropbtn" onclick="document.location='/Feedback'">Feedback<i class="fa fa-fw fa-envelope"></i> </button>
+</li> 
+
+
+                
+    <!-- Insert Github Link Below -->
+<li>
+                
+    <button class="dropbtn"  target="_blank" onclick="document.location='https://github.com/thechillyweather'">Github <i class="fa fa-github"></i></button>
+</li>
+
+
+
+                    
+         
+ </ul>
+
+
+    
+        </div>
+  
+      </div>
+    
+</nav>
+
+
+
+
+
+<div id="background-wrap">
+		<div class="x1">
+			<div class="cloud"></div>
+		</div>
+
+		<div class="x2">
+			<div class="cloud"></div>
+		</div>
+
+		<div class="x3">
+			<div class="cloud"></div>
+		</div>
+
+		<div class="x4">
+			<div class="cloud"></div>
+		</div>
+
+		<div class="x5">
+			<div class="cloud"></div>
+		</div>
+
+</div>
+
+
+
+    <div class = "container">
+        <div class = "row">
+            <div class="col-md-12"> <br>
+                <h1>Carbon Monoxide Analysis</h1>
+
+		
+<center><button class="btn" onclick="document.location='https://drive.google.com/file/d/1TBskYxQeXhzNJEoAU-tVjqw93QRVOXdB/view?usp=sharing'"><i class="fa fa-cloud-download"></i> Input Sources </button></center>
+
+						
+
+
+					<h1>Introduction to Carbon Monoxide</h1>
+<ul>
+<li>Carbon monoxide is a colourless, odourless gas. Prolonged exposure to carbon monoxide rich atmospheres may be fatal.</li><br/> 
+<li>It is easily ignited. It is just lighter than air and a flame can flash back to the source of leak very easily.</li><br/>  
+<li>Under prolonged exposure to fire or intense heat the containers may violently rupture and rocket.</li><br/> 
+<li>Carbon monoxide is a one-carbon compound in which the carbon is joined only to a single oxygen. </li><br/> 
+<li>It has a role as a neurotoxin, a signalling molecule, a vasodilator agent, a neurotransmitter, a metabolite, a P450 inhibitor, 
+    a ligand, a biomarker, a probe, a human metabolite, a mouse metabolite, an EC 1.9.3.1 (cytochrome c oxidase) inhibitor and a mitochondrial respiratory-chain inhibitor.</li><br/>  
+<li>It is a one-carbon compound, a gas molecular entity and a carbon oxide. </li><br/> 
+<li>It is a conjugate base of a carbon monoxide(1+).</li><br/> 
+<li>Carbon monoxide reacts with water vapour at high temperatures, forming carbon dioxide and hydrogen; 
+this process has been used as a source of hydrogen for combination with nitrogen in the synthesis of ammonia. </li><br/> 
+<li>With caustic alkalies, carbon monoxide forms alkali formates, which can be converted into either formic acid or alkali oxalates for the production of oxalic acid. </li><br/> 
+<li>With certain metals, carbon monoxide forms compounds called carbonyls, many of which are volatile; this reaction has been used in the purification of nickel.</li><br/>  
+<li>Carbon monoxide and hydrogen are the starting materials in the manufacture of methanol and also are used in the preparation of aldehydes and alcohols from olefins and 
+in making mixtures of liquid hydrocarbons suitable for use as fuels. Gas mixtures containing varying ratios of carbon monoxide and molecular hydrogen are called synthesis gas.</li><br/> 
+</ul>
+
+
+
+<h1>Atmospheric presence</h1>
+
+<ul>
+<li>The streak of red, orange, and yellow across South America, Africa, and the Atlantic Ocean in this animation points to high levels of carbon monoxide on September 30, 2005.</li><br/> 
+<li>Carbon monoxide concentrations in Northern Hemisphere spring as measured with the MOPITT instrument
+    Carbon monoxide (CO) is present in small amounts (about 80 ppb) in the Earth's atmosphere.</li><br/> 
+<li>Most of the rest comes from chemical reactions with organic compounds emitted by human activities and natural origins due to photochemical reactions in the troposphere 
+    that generate about 5&times;1012 kilograms per year. Other natural sources of CO include volcanoes, forest and bushfires fires, and miscellaneous other forms of combustion such as fossil fuels.</li><br/> 
+<li>Small amounts are also emitted from the ocean, and from geological activity because carbon monoxide occurs dissolved in molten volcanic rock at high pressures in the Earth's mantle. </li><br/> 
+<li>Because natural sources of carbon monoxide are so variable from year to year, it is difficult to accurately measure natural emissions of the gas.</li><br/> 
+<li>Carbon monoxide has an indirect effect on radiative forcing by elevating concentrations of direct greenhouse gases, including methane and tropospheric ozone. </li><br/> 
+<li>CO can react chemically with other atmospheric constituents (primarily the hydroxyl radical, OH.) that would otherwise destroy methane. </li><br/> 
+<li>Through natural processes in the atmosphere, it is oxidized to carbon dioxide and ozone. Carbon monoxide is short-lived in the atmosphere (with an average lifetime of about one to two months),
+    and spatially variable in concentration.</li><br/> 
+<li>Due to its long lifetime in the mid-troposphere, carbon monoxide is also used as tracer for pollutant plumes.</li><br/> 
+</ul>
+
+
+
+
+
+<h1>Carbon Monoxide and Global Warming</h1>
+
+<ul>
+<li>When carbon monoxide is emitted into the atmosphere it effects the amount of greenhouse gases, which are linked to climate change and global warming. </li><br/> 
+<li>This means that land and sea temperature increases changing to ecosystems, increasing storm activity and causing other extreme weather events.</li><br/> 
+<li>Carbon monoxide is perhaps best known for the lethal effects it can have in homes with faulty appliances and poor ventilation. </li><br/> 
+<li>In the United States, the colorless, odorless gas kills about 430 people each year.</li><br/> 
+<li>However, the importance of carbon monoxide (CO) extends well beyond the indoor environment. </li><br/> 
+<li>Indoors or outdoors, the gas can disrupt the transport of oxygen by the blood, leading to heart and health problems. </li><br/> 
+<li>CO also contributes to the formation of tropospheric ozone, another air pollutant with unhealthy effects. </li><br/> 
+<li>And though carbon monoxide does not cause climate change directly, its presence affects the abundance of greenhouse gases such as methane and carbon dioxide.</li><br/> 
+<li>Though carbon monoxide does not cause climate change directly, its presence affects the abundance of greenhouse gases such as methane and carbon dioxide.</li><br/> 
+<li>Carbon monoxide forms whenever carbon-based fuels-including coal, oil, natural gas and wood-are burned.</li><br/> 
+<li>As a result, many human activities and inventions emit carbon monoxide,including the combustion engines in cars, trucks, planes, ships and other vehicles; 
+    the fires lit by farmers to clear forests or fields; and industrial processes that involve the combustion of fossil fuels. </li><br/> 
+<li>In addition, wildfires and volcanoes are natural sources of the gas.</li><br/> 
+<li>Little was known about the global distribution of carbon monoxide until the launch of the Terra satellite in 1999. </li><br/> 
+<li>Terra carries a sensor-Measurements of Pollution in the Troposphere (MOPITT)-that can measure carbon monoxide in a consistent fashion on a global scale. </li><br/> 
+<li>With a swath width of 640 kilometers (400 miles), MOPITT scans the entire atmosphere of Earth every three days.</li><br/> 
+<li>Since CO has a lifetime in the troposphere of about one month, it persists long enough to be transported long distances by winds, 
+    but not long enough to mix evenly throughout the atmosphere. </li><br/> 
+<li>As a result, MOPITT&rsquo;s maps show significant geographic variability and seasonality.</li><br/> 
+<li>To view month by month maps of carbon monoxide, visit the carbon monoxide page in Earth Observatory&rsquo;s global maps section.</li><br/> 
+<li>In Africa, for example, agricultural burning shifts north and south of the equator with the seasons, leading to seasonal shifts in carbon monoxide.</li><br/> 
+<li>Fires are also the dominant source of carbon monoxide pollution in South America and Australia. In the United States, Europe and eastern Asia, 
+    the highest carbon monoxide concentrations occur around urban areas and tend to be a result of vehicle and industrial emissions. </li><br/> 
+<li>However, wildfires burning over large areas in North America, Russia and China also can be an important source.</li><br/> 
+<li>Terra has been in orbit long enough to observe significant changes over time. To illustrate how global carbon monoxide concentrations have changed, 
+    maps of the mission&rsquo;s first (2000) and most recent full year (2014) of data are shown above. </li><br/> 
+<li>The maps depict yearly average concentrations of tropospheric carbon monoxide at an altitude of 3,700 meters (12,000 feet). </li><br/> 
+<li>Concentrations are expressed in parts per billion by volume (ppbv). A concentration of 1 ppbv means that for every billion molecules of gas in a measured volume, 
+    one of them is a carbon monoxide molecule. Yellow areas have little or no carbon monoxide, while progressively higher concentrations are shown in orange and red.</li><br/> 
+<li>Places where data was not available are gray. For both years, the data has been averaged, which eliminates seasonal variations.</li><br/> 
+</ul>
+
+<p></p>
+
+
+
+
+<center><img src="{{ url_for('static',filename='co_graph.jpg') }}" alt="co_graph"></center>
+
+			<h3> The above Graph Determines,</h3>
+			
+			<ul>
+			<li>x-axis shows Yers from 2000 to 2014</li><br/>
+
+			<li>y-axis shows Carbon Monoxide(CO) values in ppmv (parts per million by volume)</li><br/>
+
+			<li>A thick orange Line shows the MOnthly Deviation of CO values</li><br/>
+
+			<li>Dashed Orange line shows long term trend of CO</li><br/>
+				
+			</ul>
+
+
+<h2>OCCURANCE OF CO</h2>
+
+<table>
+  <tr>
+    <th>Concentration (ppmv)</th>
+    <th>Source</th>
+  </tr>
+
+  <tr>
+    <td>0.1</td>
+    <td>Natural atmosphere level (MOPITT)</td>
+  </tr>
+
+  <tr>
+    <td>0.5&dash;5</td>
+    <td>Average level in homes</td>
+  </tr>
+
+
+  <tr>
+    <td>5&dash;15</td>
+    <td>Near properly-adjusted gas stoves in homes, modern vehicle exhaust emissions</td>
+  </tr>
+
+  <tr>
+    <td>17</td>
+    <td>Atmosphere of Venus</td>
+  </tr>
+
+  <tr>
+    <td>100&dash;200</td>
+    <td>Exhaust from automobiles in the Mexico City central area in 1975</td>
+  </tr>
+
+  <tr>
+    <td>700</td>
+    <td>Atmosphere of Mars</td>
+  </tr>
+
+  <tr>
+    <td>&lt;1000</td>
+    <td>Car exhaust fumes after passing through catalytic converter</td>
+  </tr>
+ 
+  <tr>
+    <td>5,000</td>
+    <td>Exhaust from a home wood fire</td>
+  </tr>
+
+  <tr>
+    <td>30,000&dash;100,000</td>
+    <td>Undiluted warm car exhaust without a catalytic converter</td>
+  </tr>
+
+</table>
+
+
+<center><button class="btn" onclick="document.location='https://en.wikipedia.org/wiki/Carbon_monoxide'"><i class="fa fa-wikipedia-w"></i> Wikipedia</button></center>
+
+
+
+</div>
+
+             </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</html>

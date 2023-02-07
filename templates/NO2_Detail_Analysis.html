@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href= "{{ url_for('static',filename='plot.css') }}">
+    <link rel="stylesheet" href= "{{ url_for('static',filename='UserManual.css') }}">
+    <link rel="stylesheet" href= "{{ url_for('static',filename='clous.css') }}">
+    <link rel="stylesheet" href= "{{ url_for('static',filename='tables.css') }}">
+
+  
+     
+    <title>NO2 Detail Analysis</title>
+</head>
+
+<body >
+    <!-- Create the top bar -->
+    
+<nav class="navbar navbar-default">
+
+
+        
+<div class="container-fluid">
+    
+  <!-- Brand and toggle get grouped for better mobile display -->
+            
+<div class="navbar-header">
+                
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+
+                
+<span class="sr-only">Toggle navigation</span>
+       
+
+         <span class="icon-bar"></span>
+        
+
+        <span class="icon-bar"></span>
+         
+
+       <span class="icon-bar"></span>
+             
+   </button>
+         
+
+       <a class="navbar-brand" href="/Home">Home  <i class="fa fa-home"></i></a>
+       
+
+     </div>
+
+
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+      
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+   
+             <ul class="nav navbar-nav navbar-right">
+             
+<li class="dropdown">
+
+  <button class="dropbtn">Prediction  <i class="fa fa-thermometer"></i></button>
+
+  <div class="dropdown-content">
+
+    <a href="/Prediction_Form">Countrywise Weather Prediction</a>
+
+    <a href="/Global_Prediction">Global Weather Prediction</a>
+
+  </div>
+</li>
+
+<li class="dropdown">
+
+  <button class="dropbtn">Gases Prediction <i class="fa fa-soundcloud"></i></button>
+
+  <div class="dropdown-content">
+
+     <a href="/Carbon_Prediction">Carbon Prediction</a>
+
+    <a href="/OzonePrediction">Ozone Prediction</a>
+
+    <a href="/SO2_Prediction">SO2 Prediction</a>
+
+    <a href="/NO2_Prediction">NO2 Prediction</a>
+
+    <a href="/CO_Prediction">CO Prediction</a>
+  </div>
+</li>
+
+
+
+<li class="dropdown">
+
+  <button class="dropbtn" >Graphs<i class="fa fa-cube"></i></button>
+
+  <div class="dropdown-content">
+
+    <a href="/co2no2dynamicgraph">Graph 1</a>
+
+    <a href="/ch4dynamicgraph">Graph 2</a>
+
+  </div>
+</li>
+             
+       <li class="dropdown">
+
+  <button class="dropbtn" >Plots<i class="fa fa-globe"></i></button>
+
+  <div class="dropdown-content">
+
+    <a href="/Global_yearly_average_tempreature">Global yearly average tempreature</a>
+
+    <a href="/Measurement">Measurement </a>
+
+    <a href="/Per_month">Per Month</a>
+
+    <a href="/Solar">Solar</a>
+
+  </div>
+</li>
+ 
+
+
+
+<li class="dropdown">
+
+  <button class="dropbtn" >Analysis<i class="fa fa-globe"></i></button>
+
+  <div class="dropdown-content">
+
+    <a href="/CO_Analysis">CO Analysis</a>
+
+    <a href="/CO2_Analysis">CO2 Analysis</a>
+
+    <a href="/NO2_Analysis">NO2 Analysis </a>
+
+    <a href="/O3_Analysis">O3 Analysis</a>
+
+    <a href="/SO2_Analysis">SO2 Analysis</a>
+
+  </div>
+</li>
+
+
+
+                
+
+<li class="dropdown">
+
+  <button class="dropbtn">Documentation <i class="fa fa-fw fa-book"></i></button>
+
+  <div class="dropdown-content">
+
+     <a target="_blank" href="/UserManual">User Manual</a>
+
+    <a target="_blank" href="/InputSources">Input Sources</a>
+
+  </div>
+</li>
+
+
+
+
+
+
+        
+<li>
+                
+    <button class="dropbtn" onclick="document.location='/Feedback'">Feedback<i class="fa fa-fw fa-envelope"></i> </button>
+</li> 
+
+
+                
+    <!-- Insert Github Link Below -->
+<li>
+                
+    <button class="dropbtn"  target="_blank" onclick="document.location='https://github.com/thechillyweather'">Github <i class="fa fa-github"></i></button>
+</li>
+
+
+
+                    
+         
+ </ul>
+
+
+    
+        </div>
+  
+      </div>
+    
+</nav>
+
+
+
+
+
+<div id="background-wrap">
+		<div class="x1">
+			<div class="cloud"></div>
+		</div>
+
+		<div class="x2">
+			<div class="cloud"></div>
+		</div>
+
+		<div class="x3">
+			<div class="cloud"></div>
+		</div>
+
+		<div class="x4">
+			<div class="cloud"></div>
+		</div>
+
+		<div class="x5">
+			<div class="cloud"></div>
+		</div>
+
+</div>
+
+
+
+    <div class = "container">
+        <div class = "row">
+            <div class="col-md-12"> <br>
+                <h1>Nitrogen Dioxide Analysis</h1>
+                <div class="pull-left">
+                    
+<center><button class="btn" onclick="document.location='https://drive.google.com/file/d/1RFQdOwcN2k5frv5yH41-aB1wP3ZMvl9E/view?usp=sharing'"><i class="fa fa-cloud-download"></i> Input Sources </button></center>
+            
+
+
+
+				<h1>Introduction to Nitrogen Dioxide</h1>
+<ul>
+<li>Nitrogen dioxide is a chemical compound with the formula NO2 .It is one of several nitrogen oxides. </li><br/>
+<li>NO2 is an intermediate in the industrial synthesis of nitric acid, millions of tons of which are produced each year for use primarily in the production of fertilizers. </li><br/>
+<li>At higher temperatures it is a reddish-brown gas. It can be fatal if inhaled in large quantity. Nitrogen dioxide is a paramagnetic, bent molecule with C2v point group symmetry. </li><br/>
+<li>Nitrogen dioxide is a reddish-brown gas above 21.2 &deg;C (70.2 &deg;F; 294.3 K) with a pungent, acrid odor, becomes a yellowish-brown liquid below 21.2 &deg;C (70.2 &deg;F; 294.3 K), 
+    and converts to the colorless dinitrogen tetroxide (N<sub>2</sub>O<sub>4</sub>) below -11.2 &deg;C (11.8 &deg;F; 261.9 K). </li><br/>
+<li>The bond length between the nitrogen atom and the oxygen atom is 119.7 pm. This bond length is consistent with a bond order between one and two. </li><br/>
+<li>Unlike ozone, O<sub>3</sub>, the ground electronic state of nitrogen dioxide is a doublet state, since nitrogen has one unpaired electron,
+    which decreases the alpha effect compared with nitrite and creates a weak bonding interaction with the oxygen lone pairs.  </li><br/>
+<li>The lone electron in NO<sub>2</sub> also means that this compound is a free radical, so the formula for nitrogen dioxide is often written as NO2. </li><br/>
+<li>The reddish-brown color is a consequence of preferential absorption of light in the blue region of the spectrum (400 - 500 nm), 
+    although the absorption extends throughout the visible (at shorter wavelengths) and into the infrared (at longer wavelengths).  </li><br/>
+<li>Absorption of light at wavelengths shorter than about 400 nm results in photolysis (to form NO + O, atomic oxygen); 
+    in the atmosphere the addition of O atom so formed to O<sub>2</sub> results in ozone formation. </li><br/>
+</ul>
+
+
+
+
+<h1>Atmospheric Presence</h1>
+<ul>
+<li>The Atmosphere has set safety levels for environmental exposure to NO<sub>2</sub> at 100 ppb, averaged over one hour, and 53 ppb, averaged annually. </li><br/> 
+<li>As of February 2016, no area of the US was out of compliance with these limits and concentrations ranged between 10 and 20 ppb, and annual average ambient NO2 concentrations, 
+    as measured at area-wide monitors, have decreased by more than 40% since 1980. </li><br/>
+<li>However, NO2 concentrations in vehicles and near roadways are appreciably higher than those measured at monitors in the current network.  </li><br/>
+<li>In fact, in-vehicle concentrations can be 2-3 times higher than measured at nearby area-wide monitors. 
+<li>Near-roadway (within about 50 metres (160 ft)) concentrations of NO2 have been measured to be approximately 30 to 100% higher than concentrations away from roadways. </li><br/>
+<li>Individuals who spend time on or near major roadways can experience short-term NO<sub>2</sub> exposures considerably higher than measured by the current network. </li><br/>
+<li>Approximately 16% of U.S. housing units are located within 300 feet (91 m) of a major highway, railroad, or airport (approximately 48 million people).  </li><br/>
+<li>Studies show a connection between breathing elevated short-term NO2 concentrations, and increased visits to emergency departments and hospital admissions for respiratory issues, especially asthma. </li><br/>
+<li>NO2 exposure concentrations near roadways are of particular concern for susceptible individuals, including asthmatics, children, and the elderly. </li><br/>
+</ul>
+
+
+
+
+<h1>Global Warming and No2</h1>
+<ul>
+<li>Like other greenhouse gases, nitrous oxide absorbs radiation and traps heat in the atmosphere, where it can live for an average of 114 years, according to the EPA. </li><br/>
+<li>One pound of N2O warms the atmosphere about 300 times the amount that one pound of carbon dioxide does over a 100 year timescale. </li><br/>
+<li>Since it also has a shorter life span, reducing it could have a faster, significant impact on global warming.But the largest source of nitrous oxide is agriculture, 
+    particularly fertilized soil and animal waste, and that makes it harder to rein in.  </li><br/>
+<li>&ldquo;One could imagine limiting carbon dioxide, less methane, less of lots of things.But nitrous oxide is so much a food production issue.&rdquo; </li><br/>
+<li>A 2013 report by the United Nations found that since the pre-industrial era, nitrous oxide emissions from human activities have increased 20 percent.  </li><br/>
+<li>At the time, the authors wrote that if nothing was done, those emissions were expected to double by 2050.Despite nitrous oxide&rsquo;s role depleting the ozone layer, 
+    it is not included in the Montreal Protocol on Substances that Deplete the Ozone Layer, an international treaty that aims to restore the ozone layer by phasing out certain substances. </li><br/>
+<li>Nitrous oxide also poses a second threat: while in the stratosphere, nitrous oxide is exposed to sunlight and oxygen which converts the gas into nitrogen oxides.  </li><br/>
+<li>Nitrogen oxides can damage the ozone layer, which humans rely on to prevent most of the sun&rsquo;s ultraviolet radiation from reaching earth&rsquo;s surface. </li><br/>
+<li>That double-threat effect results in the gas&rsquo;s potency. One pound of N<sub>2</sub>O warms the atmosphere about 300 times the amount that one pound of carbon dioxide does over a 100 year timescale.  </li><br/>
+<li>Its potency and relatively long life make N2O a dangerous contributor to climate change. </li><br/>
+</ul>
+
+
+
+<p></p>
+
+
+<center><button class="btn" onclick="document.location='https://en.wikipedia.org/wiki/Nitrogen_dioxide'"><i class="fa fa-wikipedia-w"></i> Wikipedia</button></center>
+
+
+
+</div>
+
+             </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</html>
