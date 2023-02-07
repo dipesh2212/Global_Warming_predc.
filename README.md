@@ -29,3 +29,9 @@ Software Requirements
 Tech Stack
 1. HTML and CSS- Frontend
 2. Flask- Backend
+
+<img width="1252" alt="Screenshot 2023-02-08 at 12 27 37 AM" src="https://user-images.githubusercontent.com/90505751/217340037-54d1a506-44c1-4949-8a17-5fc350097ba5.png">
+
+
+
+
